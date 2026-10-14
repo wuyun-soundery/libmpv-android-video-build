@@ -18,6 +18,7 @@ v_mpv=78d43740f52db817d98bcf24fb30a76ab6fa13ff
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
+v_libmysofa=1.3.5
 
 
 ## Dependency tree
@@ -29,7 +30,7 @@ dep_libvorbis=(libogg)
 if [ -n "${ENCODERS_GPL+x}" ]; then
 	dep_ffmpeg=(mbedtls dav1d libxml2 libvorbis libvpx libx264)
 else
-	dep_ffmpeg=(mbedtls dav1d libxml2)
+	dep_ffmpeg=(mbedtls dav1d libxml2 libmysofa)
 fi
 dep_freetype2=()
 dep_fribidi=()
