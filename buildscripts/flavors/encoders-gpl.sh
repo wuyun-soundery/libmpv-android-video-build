@@ -42,8 +42,7 @@ cpuflags=
 	--enable-encoders \
 	--enable-libvorbis \
 	--enable-libvpx \
-	--enable-gpl \
-	--enable-libx264 \
+	--disable-gpl \
 	--enable-muxers \
 	--enable-demuxers \
 	--enable-parsers \
@@ -77,6 +76,7 @@ cpuflags=
 	--enable-mbedtls \
 	\
 	--enable-libdav1d \
+	--enable-libmysofa \
 	\
 	--enable-libxml2 \
 	\
