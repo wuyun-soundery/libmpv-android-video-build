@@ -24,6 +24,9 @@ mkdir -p deps && cd deps
 # libvpx
 [ ! -d libvpx ] && git clone --depth 1 --branch meson-$v_libvpx https://gitlab.freedesktop.org/gstreamer/meson-ports/libvpx.git
 
+# libmysofa（HRTF 渲染，给 ffmpeg 的 sofalizer 滤镜用）
+[ ! -d libmysofa ] && git clone --depth 1 --branch v$v_libmysofa https://github.com/hoene/libmysofa.git libmysofa
+
 # libx264
 [ ! -d libx264 ] && git clone --depth 1 https://code.videolan.org/videolan/x264.git --branch master libx264
 
