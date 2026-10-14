@@ -8,10 +8,8 @@ if [ -d "prefix" ]; then
   sudo rm -r prefix
 fi
 
-export ENCODERS_GPL=1
-
 ./download.sh
-./patch-encoders-gpl.sh
+./patch.sh
 
 # --------------------------------------------------
 
@@ -24,7 +22,7 @@ cp flavors/encoders-gpl.sh scripts/ffmpeg.sh
 
 ./build.sh
 
-zip -r debug-symbols-encoders-gpl.zip prefix/*/lib
+zip -r debug-symbols-sofalizer.zip prefix/*/lib
 
 . ./include/depinfo.sh
 ./sdk/android-sdk-linux/ndk/$v_ndk/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip --strip-all prefix/arm64-v8a/usr/local/lib/libmpv.so
@@ -48,14 +46,14 @@ cp ../../prefix/x86_64/usr/local/lib/libmpv.so         app/build/outputs/apk/rel
 
 cd app/build/outputs/apk/release
 
-zip -r encoders-gpl-arm64-v8a.jar      lib/arm64-v8a/*.so
-zip -r encoders-gpl-armeabi-v7a.jar    lib/armeabi-v7a/*.so
-zip -r encoders-gpl-x86.jar            lib/x86/*.so
-zip -r encoders-gpl-x86_64.jar         lib/x86_64/*.so
+zip -r sofalizer-arm64-v8a.jar         lib/arm64-v8a/*.so
+zip -r sofalizer-armeabi-v7a.jar       lib/armeabi-v7a/*.so
+zip -r sofalizer-x86.jar               lib/x86/*.so
+zip -r sofalizer-x86_64.jar            lib/x86_64/*.so
 
 md5sum *.jar
 
 cd ../../../../../../..
 
-mkdir -p artifacts/encoders-gpl
-cp deps/media-kit-android-helper/app/build/outputs/apk/release/encoders-gpl-*.jar artifacts/encoders-gpl/
+mkdir -p artifacts/sofalizer
+cp deps/media-kit-android-helper/app/build/outputs/apk/release/sofalizer-*.jar artifacts/sofalizer/
